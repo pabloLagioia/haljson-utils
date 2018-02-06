@@ -1,12 +1,12 @@
 {
   "name": "haljson-utils",
-  "version": "1.0.2",
-  "description": "",
+  "version": "1.0.3",
+  "description": "Just some common middlewares and enhancements to the http module",
   "main": "index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha"
   },
-  "author": "",
+  "author": "pablo.lagioia",
   "license": "ISC",
   "dependencies": {
     "halson": "^3.0.0"
