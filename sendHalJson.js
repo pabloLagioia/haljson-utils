@@ -1,14 +1,12 @@
 const http = require("http");
 const ErrorResource = require("./resources/error");
 
-http.ServerResponse.prototype.sendHalJsonResource = function(resource, lang = "en-US") {
+http.ServerResponse.prototype.sendHalJsonResource = function(resource, statusCode = 200, lang = "en-US") {
 
   try {
 
-    this.writeHead(statusCode, {
-      "Content-Type": "application/hal+json",
-      "Content-Language": lang
-    });
+    this.setHeader("Content-Type", "application/hal+json");
+    this.setHeader("Content-Language", lang);
 
     this.end(resource.toString());
   

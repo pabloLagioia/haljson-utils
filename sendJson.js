@@ -1,14 +1,12 @@
 const http = require("http");
 const ErrorResource = require("./resources/error");
 
-http.ServerResponse.prototype.sendJSON = function(resource, lang = "en-US") {
+http.ServerResponse.prototype.sendJSON = function(resource, statusCode = 200, lang = "en-US") {
 
   try {
 
-    this.writeHead(statusCode, {
-      "Content-Type": "application/json",
-      "Content-Language": lang
-    });
+    this.setHeader("Content-Type", "application/json");
+    this.setHeader("Content-Language", lang);
 
     this.end(JSON.stringify(resource));
   
