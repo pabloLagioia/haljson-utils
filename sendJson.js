@@ -15,13 +15,14 @@ http.ServerResponse.prototype.sendJSON = function(resource, lang = "en-US") {
   } catch (e) {
 
     const request = this.request || this.req;
+    const status = 500;
 
-    this.writeHead(statusCode, {
+    this.writeHead(status, {
       "Content-Type": "application/vnd.error+json",
       "Content-Language": lang
     });
   
-    this.end(new ErrorResource(e.message, 500, request.originalUrl).toString());
+    this.end(new ErrorResource(e.message, status, request.originalUrl).toString());
     
   }
 
